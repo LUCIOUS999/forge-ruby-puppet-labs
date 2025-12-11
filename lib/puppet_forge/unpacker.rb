@@ -1,4 +1,5 @@
 require 'pathname'
+require 'find'
 require 'puppet_forge/error'
 require 'puppet_forge/tar'
 
@@ -55,8 +56,23 @@ module PuppetForge
     def root_dir
       return @root_dir if @root_dir
 
-      # Grab the first directory containing a metadata.json file
-      metadata_file = Dir["#{@tmpdir}/**/metadata.json"].sort_by(&:length)[0]
+      # Use Find.find instead of Dir[] for Windows long path support
+      metadata_file = nil
+      shortest_length = Float::INFINITY
+      
+      begin
+        Find.find(@tmpdir) do |path|
+          if File.basename(path) == 'metadata.json'
+            if path.length < shortest_length
+              metadata_file = path
+              shortest_length = path.length
+            end
+          end
+        end
+      rescue Errno::ENAMETOOLONG => e
+        # Even Find.find might fail, need to use Dir.each with manual recursion
+        raise "Cannot traverse directory due to long paths: #{e.message}"
+      end
 
       if metadata_file
         @root_dir = Pathname.new(metadata_file).dirname
