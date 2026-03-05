@@ -5,6 +5,19 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org).
 
+## [v6.2.0](https://github.com/puppetlabs/forge-ruby/tree/v6.2.0) - 2026-03-05
+
+[Full Changelog](https://github.com/puppetlabs/forge-ruby/compare/v6.1.0...v6.2.0)
+
+### Added
+
+- faraday-follow_redirects: Allow 0.5 [#139](https://github.com/puppetlabs/forge-ruby/pull/139) ([bastelfreak](https://github.com/bastelfreak))
+
+### Other
+
+- Add Ruby 4.0 support [#140](https://github.com/puppetlabs/forge-ruby/pull/140) ([bastelfreak](https://github.com/bastelfreak))
+- dependabot: check for github actions and bundler [#131](https://github.com/puppetlabs/forge-ruby/pull/131) ([bastelfreak](https://github.com/bastelfreak))
+
 ## [v6.1.0](https://github.com/puppetlabs/forge-ruby/tree/v6.1.0) - 2025-12-12
 
 [Full Changelog](https://github.com/puppetlabs/forge-ruby/compare/v6.0.0...v6.1.0)
@@ -16,11 +29,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Fixed
 
 - (BOLT-109) Fix Windows long path support by replacing Dir[] with Find.find [#134](https://github.com/puppetlabs/forge-ruby/pull/134) ([gavindidrichsen](https://github.com/gavindidrichsen))
-
-### Other
-
-- base64: Allow 0.3 [#135](https://github.com/puppetlabs/forge-ruby/pull/135) ([bastelfreak](https://github.com/bastelfreak))
-- faraday-follow_redirects: Allow 0.4 [#132](https://github.com/puppetlabs/forge-ruby/pull/132) ([bastelfreak](https://github.com/bastelfreak))
 
 ## [v6.0.0](https://github.com/puppetlabs/forge-ruby/tree/v6.0.0) - 2024-09-20
 
